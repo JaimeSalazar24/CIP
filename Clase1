@@ -2,4 +2,13 @@ Datos: Son hechos o transacciones que se hayan registrado y no tienen significad
 Informacion: Es el resultado en el procesamiento de datos y dar el contexto de ellos, para que asi puedan ser entendidos e interpretados
 Conocimiento: Es comprender y aplicar la informacion a otras situaciones y se optiene cuando la ifnroamcion se contextualiza
 
-Tipos de datos: son los valores que determinan el dominio, 
+Tipos de datos: son los valores que determinan el dominio para poder representarse internamente en el computador, existen 2 tipos de datos, los simples y compuestos: El simple almacena un valor a la vez y el compuestos puede contener varios valores al mismo tiempo.
+Ejemplo de tipos de datos: 
+Numéricos: Integer, Float, Double 
+Cadenas de caracteres: Chart, String 
+Booleanos: Bool 
+Sin valor: Null, Undefined 
+Byte: Representación del número de menor rango con signo 
+Entero pequeño: Representación de un entero cuyo rango es pequeño 
+Entero: Representación de un entero estándar 
+
