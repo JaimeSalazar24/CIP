@@ -37,3 +37,409 @@ b)23
 c)12
 d)57
 e)7
+
+
+
+
+
+
+
+
+[ ]
+
+[ ]
+Fudamentos de Python
+
+
+[ ]
+N1 = float(input("Ingresa la primer nota: "))
+N2 = float(input("Ingresa la segunda nota: "))
+N3 = float(input("Ingresa la tercer nota: "))
+
+
+promedio = (N1 + N2 + N3) / 3
+
+
+print(f"El promedio de los tres números es: {promedio}")
+if promedio >=3.5:
+
+Ingresa la primer nota: 5
+Ingresa la segunda nota: 4
+Ingresa la tercer nota: 6
+El promedio de los tres números es: 5.0
+Pasaste la materia
+Sesion 2
+
+
+[ ]
+#Ejercicio en clase
+def clasificar_persona(nombre, edad):
+
+  primera_letra = nombre[0].upper()
+  vocales = 'AEIOU'
+
+  if edad < 18 and primera_letra in vocales:
+    return 1
+  elif edad >= 18 and primera_letra not in vocales:
+    return 2
+  else:
+    return 3
+
+nombre = input("Ingrese el nombre de la persona: ")
+edad = int(input("Ingrese la edad de la persona: "))
+
+grupo = clasificar_persona(nombre, edad)
+
+print(f"Pertenece al grupo {grupo}")
+
+Ingrese el nombre de la persona: jaime
+Ingrese la edad de la persona: 20
+Pertenece al grupo 2
+sesion 2.1
+
+
+[ ]
+#Ejercicio en clase
+
+def long_nomb(pais):
+
+  long_nomb = len(pais)
+
+  if long_nomb < 5 and pais=='colombia':
+    return 1
+  elif long_nomb >= 5 and pais=='mexico':
+    return 2
+  else:
+    return 3
+
+pais = input("Ingrese el nombre del pais: ")
+
+print ("Grupo ",long_nomb(pais))
+print (f"Grupo {long_nomb(pais)}")
+
+
+
+Ingrese el nombre del pais: mexico
+Grupo  2
+Grupo 2
+
+[ ]
+sesion 2.2
+
+
+[ ]
+#Ejercicio en clase
+
+def long_nomb(nombre):
+
+  long_nomb = len(nombre)
+
+  if long_nomb < 5 and pais=='colombia':
+    return 1
+  elif long_nomb >= 5 and pais=='mexico':
+    return 2
+  else:
+    return 3
+
+pais = input("Ingrese el nombre del pais: ")
+nombre = input("Ingrese su nombre: ")
+
+#grupo = long_nomb(nombre,pais)#
+
+print ("Grupo ",long_nomb(nombre))
+print (f"Grupo {long_nomb(nombre)}")
+
+
+Ingrese el nombre del pais: colombia
+Ingrese su nombre: jaime
+Grupo  3
+Grupo 3
+sesion 2.3
+
+
+[ ]
+
+Empieza a programar o a crear código con IA.
+
+[ ]
+try:
+  puntuacion = float(input("Ingresa la puntuacion obtenida por el empleado: "))
+
+  if puntuacion == 1.0 and puntuacion < 1.5:
+    print (f"Estas en el nivel bajo {puntuacion* 3000000}")
+  elif puntuacion >= 1.5 and puntuacion < 2.0:
+    print (f"Estas en el nivel medio  {puntuacion* 3000000}")
+  elif puntuacion >=2 and puntuacion < 2.5 :
+    print (f"Estas en el nivel alto  {puntuacion* 3000000}")
+  elif puntuacion >=2.5 :
+    print (f"Estas en el nivel excelente  {puntuacion* 3000000}")
+  else:
+    print ("Su valor es menor al permitido ")
+except:
+  print("Ingrese solo valores numericos")
+
+
+
+
+Ingresa la puntuacion obtenida por el empleado: asdfghjklñ
+Ingrese solo valores numericos
+
+[ ]
+
+Empieza a programar o a crear código con IA.
+Tienda ARA
+
+
+[1]
+3 min
+# Sistema de Gestión de Productos (SIGEP)
+ 
+# Lista de productos como ejemplo inicial
+productos = [
+    {"id": 1, "nombre": "Leche", "cantidad": 10, "precio": 1.5},
+    {"id": 2, "nombre": "Pan", "cantidad": 4, "precio": 0.8},
+    {"id": 3, "nombre": "Huevos", "cantidad": 12, "precio": 0.2},
+]
+ 
+def mostrar_menu():
+    print("\n--- Menú SIGEP ---")
+    print("1. Agregar un nuevo producto")
+    print("2. Eliminar un producto")
+    print("3. Actualizar cantidad y precio de un producto")
+    print("4. Mostrar productos con stock bajo (menos de 5)")
+    print("5. Salir")
+    return input("Seleccione una opción: ")
+ 
+def agregar_producto():
+    try:
+        id_producto = int(input("Ingrese ID del producto: "))
+        nombre = input("Ingrese nombre del producto: ")
+        cantidad = int(input("Ingrese cantidad inicial: "))
+        precio = float(input("Ingrese precio: "))
+        productos.append({"id": id_producto, "nombre": nombre, "cantidad": cantidad, "precio": precio})
+        print(f"Producto '{nombre}' agregado con éxito.")
+    except ValueError:
+        print("Datos inválidos. Intente de nuevo.")
+ 
+def eliminar_producto():
+    try:
+        id_producto = int(input("Ingrese ID del producto a eliminar: "))
+        for producto in productos:
+            if producto["id"] == id_producto:
+                productos.remove(producto)
+                print(f"Producto con ID {id_producto} eliminado con éxito.")
+                return
+        print("Producto no encontrado.")
+    except ValueError:
+        print("ID inválido. Intente de nuevo.")
+ 
+def actualizar_producto():
+    try:
+        id_producto = int(input("Ingrese ID del producto a actualizar: "))
+        for producto in productos:
+            if producto["id"] == id_producto:
+                nueva_cantidad = int(input("Ingrese nueva cantidad: "))
+                nuevo_precio = float(input("Ingrese nuevo precio: "))
+                producto["cantidad"] = nueva_cantidad
+                producto["precio"] = nuevo_precio
+                print(f"Producto '{producto['nombre']}' actualizado con éxito.")
+                return
+        print("Producto no encontrado.")
+    except ValueError:
+        print("Datos inválidos. Intente de nuevo.")
+ 
+def mostrar_stock_bajo():
+    print("\n--- Productos con stock bajo ---")
+    productos_bajo_stock = [p for p in productos if p["cantidad"] < 5]
+    if productos_bajo_stock:
+        for producto in productos_bajo_stock:
+            print(f"ID: {producto['id']}, Nombre: {producto['nombre']}, Cantidad: {producto['cantidad']}")
+    else:
+        print("No hay productos con stock bajo.")
+ 
+# Main loop
+while True:
+    opcion = mostrar_menu()
+    if opcion == "1":
+        agregar_producto()
+    elif opcion == "2":
+        eliminar_producto()
+    elif opcion == "3":
+        actualizar_producto()
+    elif opcion == "4":
+        mostrar_stock_bajo()
+    elif opcion == "5":
+        print("Saliendo del sistema. ¡Hasta luego!")
+        break
+    else:
+        print("Opción no válida. Intente de nuevo.")
+
+CLASE 3
+
+
+[3]
+0 s
+import numpy as np
+
+array_basico = np.array([1,2,3,4,5])
+array_basico
+
+array([1, 2, 3, 4, 5])
+
+[4]
+0 s
+array_basico[0]
+1
+
+[5]
+0 s
+array_basico[0]=10
+array_basico
+
+array([10,  2,  3,  4,  5])
+
+[8]
+0 s
+array_basico * 2
+# 
+array([20,  4,  6,  8, 10])
+
+[9]
+0 s
+array_basico.max()
+10
+
+[11]
+0 s
+array_basico.min()
+2
+
+[12]
+0 s
+array_basico.sum()
+24
+
+[13]
+0 s
+array_basico[2:]
+array([3, 4, 5])
+
+[14]
+0 s
+array_basico[:2]
+array([10,  2])
+
+[15]
+0 s
+array_basico[:]=99
+array_basico
+array([99, 99, 99, 99, 99])
+
+[16]
+0 s
+np.array([(1,2),(3,4),(5,6)])
+array([[1, 2],
+       [3, 4],
+       [5, 6]])
+
+[18]
+0 s
+basico_multidimensional = np.array([[1,2,3,4],[5,6,7,8]])
+basico_multidimensional
+array([[1, 2, 3, 4],
+       [5, 6, 7, 8]])
+
+[19]
+0 s
+basico_multidimensional = np.array([[1,2,3,4],[5,6,7,8],[9,10,11,12]])
+basico_multidimensional
+array([[ 1,  2,  3,  4],
+       [ 5,  6,  7,  8],
+       [ 9, 10, 11, 12]])
+
+[21]
+0 s
+basico_multidimensional[1]
+array([5, 6, 7, 8])
+
+[27]
+0 s
+basico_multidimensional[0, 2]
+3
+
+[39]
+0 s
+basico_multidimensional[1:,0]
+array([5, 9])
+
+[43]
+0 s
+basico_multidimensional.max(axis=0)
+array([ 9, 10, 11, 12])
+PANDAS
+
+
+[48]
+0 s
+import pandas as pd
+
+football_dicc = {
+    "player": ["Lionel Messi", "Cristiano Ronaldo"],
+    "year": [2016,2016],
+    "goals": [25,37],
+}
+
+data = pd.DataFrame(football_dicc)
+print (data)
+
+              player  year  goals
+0       Lionel Messi  2016     25
+1  Cristiano Ronaldo  2016     37
+Carga archivo panda
+
+
+[64]
+1 s
+from google.colab import drive
+drive.mount('/content/drive/')
+
+import numpy as np
+import pandas as pd
+
+import plotly.express as px
+
+path_file= "/content/drive/MyDrive/dataset_prueba.csv"
+df=pd.read_csv(path_file, sep=",", header=0)
+print(df.columns)
+
+
+Drive already mounted at /content/drive/; to attempt to forcibly remount, call drive.mount("/content/drive/", force_remount=True).
+Index(['Temperature', 'Humidity', 'PM2.5', 'PM10', 'NO2', 'SO2', 'CO',
+       'Proximity_to_Industrial_Areas', 'Population_Density', 'Air Quality'],
+      dtype='object')
+
+[66]
+0 s
+df.columns=['Temperat', 'Humidity', 'PM2.5', 'PM10', 'NO2', 'SO2', 'CO',
+       'Proximity_to_Industrial_Areas', 'Population_Density', 'Air Quality']
+
+
+df.info()
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 5000 entries, 0 to 4999
+Data columns (total 10 columns):
+ #   Column                         Non-Null Count  Dtype  
+---  ------                         --------------  -----  
+ 0   Temperat                       5000 non-null   float64
+ 1   Humidity                       5000 non-null   float64
+ 2   PM2.5                          5000 non-null   float64
+ 3   PM10                           5000 non-null   float64
+ 4   NO2                            5000 non-null   float64
+ 5   SO2                            5000 non-null   float64
+ 6   CO                             5000 non-null   float64
+ 7   Proximity_to_Industrial_Areas  5000 non-null   float64
+ 8   Population_Density             5000 non-null   int64  
+ 9   Air Quality                    5000 non-null   object 
+dtypes: float64(8), int64(1), object(1)
+memory usage: 390.8+ KB
+data['nombre de la columna']. unique() cuenta los datos unicos que existen en esa columna data['nombre de la columna']. count() cuenta la cantidad que existen en esa columna data['nombre de la columna']. value_counts() cuenta los datos repetidos
